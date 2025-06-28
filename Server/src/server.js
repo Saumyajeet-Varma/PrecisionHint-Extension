@@ -37,8 +37,6 @@ app.get("/get-hint", async (req, res) => {
             return res.status(500).json({ success: false, error: "Problem in generating hints" });
         }
 
-        console.log(hints)
-
         return res.status(200).json({ success: true, hints });
     }
     catch (err) {

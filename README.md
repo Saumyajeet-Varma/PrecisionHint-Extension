@@ -16,6 +16,21 @@ The backend uses the **Gemini API** to generate high-quality, contextual hints. 
 
 ## Directory Structure
 
+```md
+Directory structure:
+└── saumyajeet-varma-precisionhint-extension/
+    ├── README.md
+    ├── Extension/
+    │   ├── content.js
+    │   └── manifest.json
+    └── Server/
+        ├── package.json
+        └── src/
+            ├── gemini.js
+            └── server.js
+
+```
+
 ## Setup and Installation
 
 #### Clone the repository

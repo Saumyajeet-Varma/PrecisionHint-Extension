@@ -1,0 +1,23 @@
+{
+  "name": "precision-hint-extension-server",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node ./src/server.js"
+  },
+  "keywords": [
+    "Chrome-extension",
+    "DSA",
+    "Gemini"
+  ],
+  "author": "Saumyajeet Varma",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.1"
+  }
+}

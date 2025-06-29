@@ -8,21 +8,24 @@ dotenv.config();
 
 const app = express();
 
-const limiter = rateLimit({
-    windowMs: process.env.RATE_LIMIT_WINDOW_MS || 24 * 60 * 60 * 1000,
-    max: process.env.RATE_LIMIT_MAX || 50,
-    message: process.env.RATE_LIMIT_MESSAGE || "Too many requests from this IP"
-});
-
 app.use(cors());
 app.use(express.json());
-app.use(limiter)
+
+const limiter = rateLimit({
+    windowMs: process.env.RATE_LIMIT_WINDOW_MS || 24 * 60 * 60 * 1000,
+    max: process.env.RATE_LIMIT_MAX || 100,
+    message: process.env.RATE_LIMIT_MESSAGE || "Too many requests from this IP"
+});
 
 app.get("/", (req, res) => {
     res.send("Server is Running...");
 });
 
-app.get("/get-hint", async (req, res) => {
+app.get("/ping", (req, res) => {
+    res.send("Server is Alive")
+})
+
+app.get("/get-hint", limiter, async (req, res) => {
 
     try {
         const { problem } = req.query;
